@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SPLIDE</title>
+   <!--  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@latest/dist/css/splide.min.css"> -->
+    <link rel="stylesheet" href="./splide.min.css">
+    <link rel="stylesheet" href="./splide-core.min.css">
+    <style>
+        .card-slider-container {
+            background-color: #ccc;
+            display: flex;
+            justify-content: center;
+            padding: 20px 0 20px 0;
+        }
+
+        .card {
+            padding: 0;
+            margin-bottom: 2.35765%;
+            background-color: #fff;
+            border-radius: 7px;
+            box-shadow: 0px 0px 20px 1px rgba(120, 120, 120, 0.2);
+        }
+
+        .card figure img {
+            height: 175px;
+            object-fit: cover;
+            width: 100%;
+            border-radius: 7px 7px 0 0;
+        }
+
+        .card__info {
+            padding: 1em;
+        }
+
+        figure {
+            margin: 0;
+        }
+
+        .splide__container {
+            position: relative;
+            box-sizing: border-box;
+        }
+
+        .splide__list {
+            margin: 0 !important;
+            padding: 0 !important;
+            width: -webkit-max-content;
+            width: max-content;
+            will-change: transform;
+        }
+
+        .splide.is-active .splide__list {
+            display: flex;
+            align-items: flex-start;
+        }
+
+        .splide__pagination {
+            display: inline-flex;
+            align-items: center;
+            width: 95%;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin: 0;
+        }
+
+        .splide__pagination li {
+            list-style-type: none;
+            display: inline-block;
+            line-height: 1;
+            margin: 0;
+        }
+
+        .splide__pagination li button {
+            background-color: transparent;
+            border: 1px solid #e6e9ee;
+            height: 20px;
+            margin: 0 7px;
+            width: 20px;
+            border-radius: 50%;
+        }
+
+        .splide__pagination li button.is-active {
+            background-color: black;
+        }
+
+        .splide {
+            visibility: hidden;
+        }
+
+        .splide,
+        .splide__slide {
+            position: relative;
+            outline: none;
+        }
+
+        .splide__slide {
+            box-sizing: border-box;
+            list-style-type: none !important;
+            margin: 0;
+            flex-shrink: 0;
+            transition: transform 1s;
+            transform: scale(0.9);
+        }
+
+        .splide__slide.is-active {
+            transform: scale(1);
+            transition: transform .5s .4s;
+        }
+
+        .splide__slide img {
+            vertical-align: bottom;
+        }
+
+        .splide__slider {
+            position: relative;
+        }
+
+        .splide__track {
+            position: relative;
+            z-index: 0;
+            overflow: hidden;
+            padding-top: 2em;
+            padding-bottom: 2em;
+        }
+
+        .splide--draggable>.splide__track>.splide__list>.splide__slide {
+            -webkit-user-select: none;
+            user-select: none;
+        }
+
+        .splide--ttb>.splide__track>.splide__list {
+            display: block;
+        }
+
+        .splide--ttb>.splide__pagination {
+            width: auto;
+        }
+
+        .splide__arrow {
+            position: absolute;
+            z-index: 1;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 2em;
+            height: 2em;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: none;
+            padding: 0;
+            /*			opacity: .7;*/
+            background-color: transparent;
+        }
+
+        .splide__arrow svg {
+            width: 2em;
+            height: 2em;
+        }
+
+        .splide__arrow:hover {
+            cursor: pointer;
+            opacity: 0.9;
+        }
+
+        .splide__arrow:focus {
+            outline: none;
+        }
+
+        .splide__arrow--prev {
+            left: -3em;
+        }
+
+        .splide__arrow--prev svg {
+            transform: scaleX(-1);
+        }
+
+        .splide__arrow--next {
+            right: -3em;
+        }
+
+        .card {
+            box-shadow: none;
+            border: 1px solid #e6e9ee; 
+        }
+    </style>
+</head>
+
+<body>
+    <div class="card-slider-container">
+        <div id="card-slider" class="splide">
+            <div class="splide__track">
+                <div class="splide__list">
+
+                    <div class="splide__slide card" style="margin-bottom: 35px;">
+                        <figure>
+                            <img src="./img/01.jpg">
+                        </figure>
+                        <div class="card__info">
+                            <h3>Example 1</h3>
+                            <p>Description text</p>
+                        </div>
+                    </div>
+
+                    <div class="splide__slide card">
+                        <figure>
+                            <img src="./img/02.jpg">
+                        </figure>
+                        <div class="card__info">
+                            <h3>Example 2</h3>
+                            <p>Description text</p>
+                        </div>
+                    </div>
+
+                    <div class="splide__slide card">
+                        <figure>
+                            <img src="./img/03.jpg">
+                        </figure>
+                        <div class="card__info">
+                            <h3>Example 3</h3>
+                            <p>Description text</p>
+                        </div>
+                    </div>
+
+                    <div class="splide__slide card">
+                        <figure>
+                            <img src="./img/04.jpg">
+                        </figure>
+                        <div class="card__info">
+                            <h3>Example 4</h3>
+                            <p>Description text</p>
+                        </div>
+                    </div>
+
+                    <div class="splide__slide card">
+                        <figure>
+                            <img src="./img/05.jpg">
+                        </figure>
+                        <div class="card__info">
+                            <h3>Example 5</h3>
+                            <p>Description text</p>
+                        </div>
+                    </div>
+
+                    <div class="splide__slide card">
+                        <figure>
+                            <img src="./img/06.jpg">
+                        </figure>
+                        <div class="card__info">
+                            <h3>Example 6</h3>
+                            <p>Description text</p>
+                        </div>
+                    </div>
+
+                    <div class="splide__slide card">
+                        <figure>
+                            <img src="./img/07.jpg">
+                        </figure>
+                        <div class="card__info">
+                            <h3>Example 7</h3>
+                            <p>Description text</p>
+                        </div>
+                    </div>
+
+                    <div class="splide__slide card">
+                        <figure>
+                            <img src="./img/08.jpg">
+                        </figure>
+                        <div class="card__info">
+                            <h3>Example 8</h3>
+                            <p>Description text</p>
+                        </div>
+                    </div>
+
+                    <div class="splide__slide card">
+                        <figure>
+                            <img src="./img/09.jpg">
+                        </figure>
+                        <div class="card__info">
+                            <h3>Example 9</h3>
+                            <p>Description text</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!--<script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@latest/dist/js/splide.min.js"></script>-->
+         <script src="./splide.js"></script> 
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            new Splide("#card-slider", {
+                type: "loop",
+                perPage: 3,
+                gap: 0,
+                speed: "400",
+                keyboard: "true",
+                updateOnMove: "true",
+                focus: "center",
+                width: "600px",
+                
+                breakpoints: {
+                    800: {
+                        perPage: 1,
+                        width: "600px",
+                    },
+                    710: {
+                        perPage: 1,
+                        width: "300px",
+                    }
+                }
+            }).mount();
+        });
+    </script>
+</body>
+
+</html>
